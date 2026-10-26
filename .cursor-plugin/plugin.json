@@ -1,0 +1,35 @@
+{
+  "name": "cookiecat",
+  "displayName": "Cookiecat",
+  "version": "0.1.0",
+  "description": "Cookiecat: call RelayRouter OpenAI-compatible chat completions and list models via MCP.",
+  "keywords": [
+    "cookiecat",
+    "relayrouter",
+    "llm",
+    "mcp",
+    "openai-compatible"
+  ],
+  "variables": {
+    "type": "object",
+    "properties": {
+      "RELAYROUTER_API_KEY": {
+        "type": "string",
+        "title": "RelayRouter API Key",
+        "description": "Secret Bearer API key (sk-\u2026). Never commit this value."
+      },
+      "RELAYROUTER_BASE_URL": {
+        "type": "string",
+        "title": "RelayRouter Base URL",
+        "description": "Optional OpenAI-compatible base URL. Default: https://api.relayrouter.ai/v1",
+        "default": "https://api.relayrouter.ai/v1"
+      }
+    },
+    "required": [
+      "RELAYROUTER_API_KEY"
+    ]
+  },
+  "author": {
+    "name": "Meyra"
+  }
+}

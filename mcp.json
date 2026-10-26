@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "cookiecat": {
+      "command": "node",
+      "args": [
+        "${CURSOR_PLUGIN_ROOT}/dist/cookiecat.mjs"
+      ],
+      "env": {
+        "RELAYROUTER_API_KEY": "${RELAYROUTER_API_KEY}",
+        "RELAYROUTER_BASE_URL": "${RELAYROUTER_BASE_URL}"
+      }
+    }
+  }
+}
