@@ -16,7 +16,7 @@
       "RELAYROUTER_API_KEY": {
         "type": "string",
         "title": "RelayRouter API Key",
-        "description": "Secret Bearer API key (sk-\u2026). Never commit this value."
+        "description": "Secret Bearer API key (sk-…). Never commit this value."
       },
       "RELAYROUTER_BASE_URL": {
         "type": "string",
@@ -31,5 +31,6 @@
   },
   "author": {
     "name": "Meyra"
-  }
+  },
+  "logo": "assets/logo.svg"
 }

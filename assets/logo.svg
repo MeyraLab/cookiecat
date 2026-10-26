@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Cookiecat">
+  <rect width="512" height="512" rx="96" fill="#111827"/>
+  <circle cx="256" cy="268" r="132" fill="#F5D0A9"/>
+  <circle cx="210" cy="230" r="14" fill="#3F2A1D"/>
+  <circle cx="302" cy="230" r="14" fill="#3F2A1D"/>
+  <circle cx="188" cy="292" r="10" fill="#C4A484"/>
+  <circle cx="318" cy="280" r="12" fill="#C4A484"/>
+  <circle cx="250" cy="330" r="9" fill="#C4A484"/>
+  <path d="M196 168c18-46 54-70 92-70 22 0 40 8 54 22-28 6-48 28-54 58-26-4-56 8-92-10z" fill="#F8E7D2"/>
+  <circle cx="248" cy="118" r="22" fill="#F5D0A9"/>
+</svg>
