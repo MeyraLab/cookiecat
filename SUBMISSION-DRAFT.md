@@ -1,64 +1,52 @@
-# Cursor Marketplace 提交稿（待 Meyra 批准）
+# Cookiecat — Cursor Marketplace 提交稿（终版，待 Meyra 批准）
 
-**状态：** 仅草稿。未创建公开仓库、未提交 [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish)。  
+**状态：** 终版待审。公开仓已就绪；**尚未**在 [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish) 提交。  
 **归属：** Meyra  
-**本地路径：** `/workspace/relayrouter-mcp/`  
+**仓库：** https://github.com/MeyraLab/cookiecat  
 **版本：** 0.1.0  
-**拟名：** `cookiecat`（displayName：Cookiecat）
 
 ---
 
-## 拟提交信息
+## 提交页拟填
 
-| 字段 | 拟填内容 |
+| 字段 | 内容 |
 |---|---|
+| Repository URL | `https://github.com/MeyraLab/cookiecat` |
 | Plugin name | `cookiecat` |
 | Display name | Cookiecat |
 | Description | Call RelayRouter’s OpenAI-compatible API from Cursor: list models and run non-streaming chat completions via MCP. |
 | Version | `0.1.0` |
-| License | MIT（仓库根目录已有 `LICENSE`） |
+| Author | Meyra |
+| License | MIT |
+| Homepage | https://relayrouter.io |
 | Keywords | cookiecat, relayrouter, llm, mcp, openai-compatible |
-| Author | Meyra（`plugin.json` → `author.name`） |
-| Homepage | https://relayrouter.io（产品站；可改） |
-| Repository | **待建** 公开 GitHub，建议 `MeyraLab/cookiecat` |
-| Variables | `RELAYROUTER_API_KEY`（必填 secret）、`RELAYROUTER_BASE_URL`（可选，默认 `https://api.relayrouter.ai/v1`） |
-| Tools | `list_models`、`chat_completion` |
-| Skill | `skills/cookiecat` |
-| MCP entry | `node ${CURSOR_PLUGIN_ROOT}/dist/cookiecat.mjs`（单文件 bundle，含 SDK + zod） |
 
-### 提交页怎么填（批准后）
+## 插件能力（审核员可见）
 
-1. 把插件推到**公开** Git 仓库（建议 `MeyraLab/cookiecat`）  
-2. 打开 [Publish a Cursor Marketplace Plugin](https://cursor.com/marketplace/publish)  
-3. 粘贴仓库 URL，按表单提交审核  
+- **MCP 入口：** `node ${CURSOR_PLUGIN_ROOT}/dist/cookiecat.mjs`（单文件 bundle，克隆后无需 `npm install`）
+- **Variables：** `RELAYROUTER_API_KEY`（必填）、`RELAYROUTER_BASE_URL`（可选，默认 `https://api.relayrouter.ai/v1`）
+- **Tools：** `list_models`、`chat_completion`（非流式；返回正文 + usage）
+- **Skill：** `skills/cookiecat`
 
----
+## 清单核对
 
-## 阻塞项状态
+| 项 | 状态 |
+|---|---|
+| 公开 Git 仓库 | 已有 https://github.com/MeyraLab/cookiecat |
+| `.cursor-plugin/plugin.json` | name / displayName / author / variables 齐全 |
+| `mcp.json` + `dist/cookiecat.mjs` | 已入库 |
+| `LICENSE` MIT | 已有 |
+| README 说明安装与密钥 | 已有；密钥不入库 |
+| 本地 smoke | build/bundle 过；缺 key 报错清楚；有 key 时 list + 短 chat 通 |
 
-| # | 项 | 状态 |
-|---|---|---|
-| 1 | 公开 Git 仓库 | **仍 TODO** — 未创建；建议 `MeyraLab/cookiecat` |
-| 2 | clone 可跑 / `dist` | **已修** — esbuild 打成 `dist/cookiecat.mjs`；`.gitignore` 为 `dist/*` + `!dist/cookiecat.mjs`；`mcp.json` 指向该文件 |
-| 3 | `LICENSE` | **已修** — MIT，Copyright (c) 2026 Meyra |
-| 4 | `plugin.json` author | **已修** — `{"name":"Meyra"}` |
-| 5 | README Marketplace 措辞 | **已修** — 品牌 Cookiecat；归属 Meyra；密钥仅 Configure / 本地 gitignored `.env`；不再写「不发布 Marketplace」 |
+## 批准后我会做的事
 
-## 建议一并做（非阻塞）
+1. 打开 Marketplace Publish 页，提交仓库 URL `https://github.com/MeyraLab/cookiecat`
+2. 按上表填信息（表单字段以页面为准）
+3. **不会**把 API Key 填进任何公开字段
 
-- 可选 logo：`assets/logo.svg`（或 png）并在 `plugin.json` 写 `logo`  
-- 仓库继续忽略 `.env` / `*.key`  
-- 不把真实 `RELAYROUTER_API_KEY` 写进任何文件或提交说明  
+## 本版不做
 
-## 本地已证明
-
-- `npm install` / `bundle` / `typecheck`  
-- 无 key → 清楚报缺 `RELAYROUTER_API_KEY`  
-- 有 key → `list_models`、短 `chat_completion` 字段形状正常（验证时不打印完整 key）  
-
-## 明确不做（除非 Meyra 再批准）
-
-- **不上架、不点 Publish**  
-- 不创建公开 GitHub 仓库（本轮已按指示跳过）  
-- 不把密钥提交到 Git / Marketplace 表单  
-- 不加流式 / Anthropic `/messages` / 图片（第一版范围外）
+- 不加 logo（可选后续）
+- 不加流式 / Anthropic `/messages` / 图片
+- 你点头之前不点 Publish
